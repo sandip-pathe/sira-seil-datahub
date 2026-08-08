@@ -1,0 +1,543 @@
+.overlay {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgb(20 20 18 / 56%);
+  backdrop-filter: blur(1.5px);
+}
+
+.dialog {
+  --settings-accent: var(--sira);
+  --settings-accent-soft: var(--sira-soft);
+  width: min(900px, calc(100vw - 32px));
+  max-width: none;
+  height: min(680px, calc(100dvh - 32px));
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--overlay-shadow);
+  color: var(--text);
+}
+
+.dialog[data-workspace="seil"] {
+  --settings-accent: var(--seil);
+  --settings-accent-soft: var(--seil-soft);
+}
+
+.dialog button,
+.dialog a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dialog button:focus-visible,
+.dialog a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.modalShell {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  height: 100%;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.settingsMenu {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: var(--surface-subdued);
+}
+
+.menuHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px 14px;
+}
+
+.menuHeader > div {
+  min-width: 0;
+  display: grid;
+}
+
+.menuHeader strong {
+  overflow: hidden;
+  color: var(--brand-ink);
+  font-family: var(--font-brand);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menuHeader span {
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.closeButton,
+.mobileBack,
+.mobileClose {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.closeButton:hover,
+.mobileBack:hover,
+.mobileClose:hover {
+  background: color-mix(in srgb, var(--border) 65%, transparent);
+}
+
+.closeButton svg,
+.mobileBack svg,
+.mobileClose svg {
+  width: 19px;
+  height: 19px;
+}
+
+.settingsNav {
+  display: grid;
+  gap: 3px;
+  padding: 4px 10px;
+}
+
+.settingsNav button {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 620;
+  text-align: left;
+  cursor: pointer;
+}
+
+.settingsNav button:hover {
+  background: color-mix(in srgb, var(--border) 55%, transparent);
+}
+
+.settingsNav button[aria-current="page"] {
+  background: var(--settings-accent-soft);
+  color: var(--settings-accent);
+  font-weight: 720;
+}
+
+.settingsNav svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.menuFooter {
+  display: grid;
+  gap: 16px;
+  margin-top: auto;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.menuFooter nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 14px;
+}
+
+.menuFooter nav a {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 620;
+  text-decoration: none;
+}
+
+.menuFooter nav a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.accountSummary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.accountSummary > span,
+.profileIdentity > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.accountSummary > span {
+  width: 34px;
+  height: 34px;
+}
+
+.accountSummary > div,
+.profileIdentity > div {
+  min-width: 0;
+  display: grid;
+}
+
+.accountSummary strong,
+.profileIdentity strong {
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountSummary small,
+.profileIdentity small {
+  margin-top: 1px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settingsPane {
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--surface);
+}
+
+.paneHeader {
+  padding: 30px 36px 18px;
+}
+
+.paneHeader p {
+  margin: 0 0 5px;
+  color: var(--settings-accent);
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.paneHeader h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 24px;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.paneHeader h2:focus-visible {
+  outline: none;
+}
+
+.paneHeader > span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.mobileActions {
+  display: none;
+}
+
+.previewNotice {
+  min-height: 48px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 0 36px;
+  padding: 11px 13px;
+  border: 1px solid #ead7a3;
+  border-radius: 8px;
+  background: var(--warning-bg);
+  color: #5e4300;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.previewNotice svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.paneBody {
+  padding: 24px 36px 36px;
+}
+
+.profileIdentity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 0 20px;
+}
+
+.profileIdentity > span {
+  width: 50px;
+  height: 50px;
+  border-color: color-mix(in srgb, var(--settings-accent) 25%, var(--border));
+  background: var(--settings-accent-soft);
+  color: var(--settings-accent);
+  font-size: 14px;
+}
+
+.profileIdentity strong {
+  font-size: 15px;
+}
+
+.profileIdentity small {
+  font-size: 11px;
+}
+
+.settingRows {
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.settingRows > div {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.settingRows dt,
+.settingRows dd {
+  min-width: 0;
+  margin: 0;
+  font-size: 13px;
+}
+
+.settingRows dt {
+  color: var(--muted);
+}
+
+.settingRows dd {
+  color: var(--ink);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.settingRows dd a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--settings-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.boundaryCallout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--settings-accent) 24%, var(--border));
+  border-radius: 9px;
+  background: var(--settings-accent-soft);
+}
+
+.boundaryCallout > svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  color: var(--settings-accent);
+}
+
+.boundaryCallout strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.boundaryCallout p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.safetyNote {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.accountAction,
+.accountActionSecondary {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 14px;
+  border: 1px solid var(--settings-accent);
+  border-radius: 10px;
+  background: var(--settings-accent);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.accountActionSecondary {
+  margin-top: 8px;
+  background: transparent;
+  color: var(--settings-accent);
+}
+
+@media (max-width: 640px) {
+  .overlay {
+    padding: 0;
+  }
+
+  .dialog {
+    width: 100vw;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .modalShell {
+    display: block;
+  }
+
+  .settingsMenu,
+  .settingsPane {
+    width: 100%;
+    height: 100%;
+  }
+
+  .settingsMenu {
+    border-right: 0;
+  }
+
+  .dialog[data-mobile-pane="menu"] .settingsPane,
+  .dialog[data-mobile-pane="detail"] .settingsMenu {
+    display: none;
+  }
+
+  .menuHeader {
+    padding: max(12px, env(safe-area-inset-top)) 16px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .settingsNav {
+    padding: 12px 10px;
+  }
+
+  .settingsNav button {
+    min-height: 52px;
+    font-size: 14px;
+  }
+
+  .menuFooter {
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+
+  .paneHeader {
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    padding: max(10px, env(safe-area-inset-top)) 16px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .mobileActions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 12px -10px;
+  }
+
+  .mobileBack,
+  .mobileClose {
+    display: inline-flex;
+  }
+
+  .mobileBack {
+    justify-content: flex-start;
+    gap: 3px;
+    padding: 0 10px;
+    color: var(--settings-accent);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .mobileClose {
+    margin-right: -10px;
+  }
+
+  .paneHeader h2 {
+    font-size: 22px;
+  }
+
+  .previewNotice {
+    margin: 16px 16px 0;
+  }
+
+  .paneBody {
+    padding: 20px 16px max(28px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 420px) {
+  .settingRows > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 0;
+  }
+
+  .settingRows dd {
+    text-align: left;
+  }
+}
+
+@media (forced-colors: active) {
+  .settingsNav button[aria-current="page"] {
+    border: 1px solid ButtonText;
+  }
+}

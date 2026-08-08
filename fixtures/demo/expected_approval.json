@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "approval_request_id": "apr_consultco_fixture_d",
+  "purchase_intent_id": "pi_consultco_fixture_d",
+  "intent_hash": "sha256:277a71a69813260c8651d6572cd17572478ba9bba17e9b525ac639904d9e211d",
+  "status": "APPROVED",
+  "policy_version": 1,
+  "requirement_set_id": "aprs_consultco_v1",
+  "stages": [
+    {
+      "stage": 1,
+      "role": "operations_owner",
+      "status": "APPROVED",
+      "actor_ref": "usr_operations_owner",
+      "approved_intent_hash": "sha256:277a71a69813260c8651d6572cd17572478ba9bba17e9b525ac639904d9e211d",
+      "recorded_at": "2026-08-02T01:15:00Z"
+    },
+    {
+      "stage": 2,
+      "role": "security_privacy_owner",
+      "status": "APPROVED",
+      "actor_ref": "usr_security_owner",
+      "approved_intent_hash": "sha256:277a71a69813260c8651d6572cd17572478ba9bba17e9b525ac639904d9e211d",
+      "recorded_at": "2026-08-02T01:16:00Z"
+    },
+    {
+      "stage": 3,
+      "role": "legal_owner",
+      "status": "APPROVED",
+      "actor_ref": "usr_legal_owner",
+      "approved_intent_hash": "sha256:277a71a69813260c8651d6572cd17572478ba9bba17e9b525ac639904d9e211d",
+      "recorded_at": "2026-08-02T01:17:00Z"
+    },
+    {
+      "stage": 4,
+      "role": "budget_owner",
+      "status": "APPROVED",
+      "actor_ref": "usr_budget_owner",
+      "approved_intent_hash": "sha256:277a71a69813260c8651d6572cd17572478ba9bba17e9b525ac639904d9e211d",
+      "recorded_at": "2026-08-02T01:18:00Z"
+    }
+  ],
+  "exact_summary": {
+    "decision_version": 1,
+    "decision_hash": "sha256:f84add454013606bb983619afb8a79d1e23dd2d64c9a810d113424a9e5f27b17",
+    "selection_id": "selection_consultco_fixture_d",
+    "solution_plan_id": "plan_5a682ec42084ae355a2d",
+    "merchant_id": "merchant_fixture_d",
+    "line_items": [
+      {
+        "line_item_id": "li_fixture_d_team",
+        "type": "MERCHANT_SUBTOTAL",
+        "description": "LumaMeet annual pilot for ten seats",
+        "quantity": 1,
+        "unit_amount": "980.00",
+        "total_amount": "980.00",
+        "schedule_version": null,
+        "demo_policy_label": null
+      },
+      {
+        "line_item_id": "li_sira_transaction_fee",
+        "type": "SIRA_TRANSACTION_FEE",
+        "description": "SIRA buyer transaction fee under the sandbox demo policy",
+        "quantity": 1,
+        "unit_amount": "10.00",
+        "total_amount": "10.00",
+        "schedule_version": "buyer_txn_demo_v1",
+        "demo_policy_label": "DEMO_ONLY"
+      }
+    ],
+    "merchant_subtotal": "980.00",
+    "buyer_transaction_fee": "10.00",
+    "fee_schedule_version": "buyer_txn_demo_v1",
+    "tax_amount": "0.00",
+    "landed_total": "990.00",
+    "currency": "USD",
+    "quote_id": "quote_fixture_d_v1",
+    "quote_version": 1,
+    "pack_id": "fixture_selected_fit",
+    "pack_version": 1,
+    "offer_id": "offer_fixture_d_monthly",
+    "offer_version": 1,
+    "expected_fulfillment_ids": [
+      "fi_fixture_d_workspace",
+      "fi_fixture_d_seats"
+    ]
+  },
+  "created_at": "2026-08-02T01:11:00Z",
+  "expires_at": "2026-08-02T12:00:00Z"
+}
